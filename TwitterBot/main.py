@@ -58,8 +58,9 @@ def infogetter():
 
 def tweeter():
     has_name = informations[1].replace(" " , "")
-    has_gen = informations[3][7:]
-    message = ', '.join(map(str, informations[:2])) + f" {informations[2]} \n\n" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #{has_gen} #art #arte "
+    has_gen = informations[3][7:].replace(" ","")
+    has_gen = informations[3][7:].replace("-","")
+    message = ', '.join(map(str, informations[:2])) + f" {informations[2]} \n\n" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #{has_gen} #art #arte \nSource: {truelink[0]}"
     
     media = api.media_upload("sample_image.png")
     api.update_status(status=message, media_ids=[media.media_id])
@@ -72,6 +73,7 @@ while True:
     searcher()
 
     print(truelink[0])
+
     url2 = truelink[0]
     page2 = urlopen(url2)
     html2 = page2.read().decode("utf-8")
