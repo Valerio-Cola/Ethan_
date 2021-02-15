@@ -5,10 +5,10 @@ import requests
 import tweepy 
 import time
 
-consumer_key = 'ma4i41VNEylPopbEWMEQN7dvj' 
-consumer_secret = 'fRYpXYXfRBtYXwJcNhJ9tCX2qcspXdDjCVuY9Wx08IbPTdcw99' 
-access_token = '1361078733902381057-yjxQBL3NMbQ99QVrQMyzuA5mOuEPDk' 
-access_token_secret = 'eLCtpOklgL4GeVfqrPhtQlVbtwhcHz0gWTJfvvZAgyUSX' 
+consumer_key = 'iEKzaT8pYMjFlLPbrJh7QtpjE' 
+consumer_secret = 'TrD7hQdeCO9cYzVgIo7yvbH7s5w4XOrzKuiNMn9R7r6WsTrmyX' 
+access_token = '1361315303767093248-RkU2IAwKypDHzeahjGxCjyzgzUZOVy' 
+access_token_secret = 'wFr0sLVCtez0Q5z9dyDQppzt0sYJ8vm6dxoYqJDNu8FXB' 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
