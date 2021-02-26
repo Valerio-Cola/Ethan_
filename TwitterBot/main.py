@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
 from tweepy import api
-#from getLink import searcher, truelink
+from getLink import searcher, truelink
 import requests
 import tweepy 
 import time
