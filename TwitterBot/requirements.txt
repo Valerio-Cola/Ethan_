@@ -1,5 +1,6 @@
 tweepy
 bs4
 requests
-urllib
+urllib.request
+time
 pickle
