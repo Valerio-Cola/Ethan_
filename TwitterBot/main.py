@@ -9,6 +9,8 @@ import time
 import random
 import os
 
+time.sleep(1920)
+
 consumer_key = 'jI3PgeF91SzMvWyAijDHB4RlH' 
 consumer_secret = 'uHBhZqbrgLEUeQRDNTrnKx48s5sm2dymArsxHnidye28JtgSvf' 
 access_token = '1361315303767093248-M4Kk6yzJtlVKiowXhXsZ4sjIgiMEN6' 
@@ -112,4 +114,3 @@ html2 = page2.read().decode("utf-8")
 soup2 = BeautifulSoup(html2, "html.parser")
     
 infogetter()
-time.sleep(1920)
