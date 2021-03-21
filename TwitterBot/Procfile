@@ -1,1 +1,0 @@
-ethania: python "main.py"
