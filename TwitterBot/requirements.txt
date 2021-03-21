@@ -1,0 +1,6 @@
+tweepy
+bs4
+requests
+time
+urllib.request
+pickle
