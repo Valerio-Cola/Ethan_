@@ -1,3 +1,6 @@
 tweepy
 bs4
 requests
+os
+urllib
+pickle
