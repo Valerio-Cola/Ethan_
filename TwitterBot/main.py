@@ -112,4 +112,4 @@ html2 = page2.read().decode("utf-8")
 soup2 = BeautifulSoup(html2, "html.parser")
     
 infogetter()
-time.sleep(1920)
+#time.sleep(1920)
