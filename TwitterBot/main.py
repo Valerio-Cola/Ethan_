@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
-import pickle
 from tweepy import api
 from getLink import searcher, truelink
 import requests
@@ -8,8 +7,7 @@ import tweepy
 import time
 import random
 import os
-
-time.sleep(1920)
+import pickle
 
 consumer_key = 'jI3PgeF91SzMvWyAijDHB4RlH' 
 consumer_secret = 'uHBhZqbrgLEUeQRDNTrnKx48s5sm2dymArsxHnidye28JtgSvf' 
@@ -79,14 +77,14 @@ def infogetter():
 
 def tweeter():
     has_name = informations[1].replace(" " ,"")
-    has_gen = informations[3][7:].replace(" ","")
+    has_gen = informations[3][6:].replace(" ","")
     has_gen2 = has_gen[7:].replace("-","")
     has_gen3 = has_gen2[7:].replace(",","")
     last_hash = random.choice(hash_art)
-    message = ', '.join(map(str, informations[:2])) + f" {informations[2]} \n\n" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #{has_gen3} {last_hash}\n" #Source: {truelink[0]}
+    message = ', '.join(map(str, informations[:2])) + f" {informations[2]} \n\n" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #{has_gen3} #art {last_hash}\n Source: {truelink[0]}"
 
-    media = api.media_upload("sample_image.png")
-    api.update_status(status=message, media_ids=[media.media_id])
+    #media = api.media_upload("sample_image.png")
+    #api.update_status(status=message, media_ids=[media.media_id])
 
 
 def Save_All(id_replace):
@@ -114,3 +112,4 @@ html2 = page2.read().decode("utf-8")
 soup2 = BeautifulSoup(html2, "html.parser")
     
 infogetter()
+time.sleep(1920)
