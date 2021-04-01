@@ -82,6 +82,8 @@ def infogetter():
              appended1 = appended.replace("\n","")
              index = appended1.find("Style")
              lista_query.append(appended1[:int(index)])
+        
+        print(lista_query)
 
         if comparazionem in lista_query:
             print("Ce sta gia")
