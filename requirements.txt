@@ -2,3 +2,5 @@ tweepy
 bs4
 requests
 selenium
+heroku-buildpack-google-chrome
+heroku-buildpack-xvfb-google-chrome
