@@ -2,9 +2,6 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests
 
-from tweepy import api
-import tweepy 
-
 from getLink import searcher, truelink
 import time
 import random
@@ -17,11 +14,13 @@ time.sleep(3600) # 1 hour
 
 
 ###---Login into TwitterAPI---###
- 
-consumer_key = 'jI3PgeF91SzMvWyAijDHB4RlH' 
-consumer_secret = 'uHBhZqbrgLEUeQRDNTrnKx48s5sm2dymArsxHnidye28JtgSvf' 
-access_token = '1361315303767093248-M4Kk6yzJtlVKiowXhXsZ4sjIgiMEN6' 
-access_token_secret = 'eEGVadcC70OyMo7WcwPjJRmCOmddY4VqGq7hyB0WdrEZA' 
+from tweepy import api
+import tweepy 
+
+consumer_key = 'bhoGFbgjH8GyZ4aydYBczOkUg' 
+consumer_secret = 'M6vIIGM98KvCv0S2NGpNLrcs5OTj8oG7UkylDu6GPiXEEWXU91' 
+access_token = '1423569504253186048-jWlxjcc1OfLjnmORByrjx1mTmkjRhb' 
+access_token_secret = 'K3jj9VDKEBimKnzAlqot0tV7Wt44pac1oHVtDMCFsxJ0M' 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
