@@ -81,7 +81,7 @@ def duplicate_finder(titles, author):
     duplicated = titles.text + ", " + author.text
         
     lista_query = []
-    tweets = api.user_timeline(screen_name = "Ethan_Algo", count = 200, include_rts = False, tweet_mode = 'extended')
+    tweets = api.user_timeline(screen_name = "EthanAlgo", count = 50, include_rts = False, tweet_mode = 'extended')
 
     for info in tweets:
          appended = info.full_text
