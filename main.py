@@ -17,10 +17,10 @@ time.sleep(3600) # 1 hour
 from tweepy import api
 import tweepy 
 
-consumer_key = 'JdkFDsNwN1RXgCY9J4izyOKg3' 
-consumer_secret = 'YXcm9LlNOBQCc2cHBAhb2GxIcYSSBGwNMhNtXUa9B8zh6Cxqye' 
-access_token = '1423569504253186048-0CR46zzTn5B9DtE7WE0LiZGGrwNoXu' 
-access_token_secret = 'aMHDXDGUmH1Xozhjtukt5TjxpaT0utQA7Ezbi447x9L9q' 
+consumer_key = 'CG6xRJT6tyzmtU02VFKBsJ7vb' 
+consumer_secret = 'grValF0HVRr2edhKzqM72xe2ytXrVu5wj4PbhSwYTV0j1fjYVK' 
+access_token = '1432301626757353472-A74aSFk5cn0RPNfIZJF4AxqLDOd4s5' 
+access_token_secret = 'p0KqKbSnFMv2gnffKjr9Ilt7hZwhP5EXbWFfgmVeICjmU' 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
