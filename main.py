@@ -9,7 +9,7 @@ import random
 
 
 ###---Wait to avoid that twitterAPI session is too long open---###  
-print(Starting in 1h)
+
 time.sleep(3600) # 1 hour
 
  
