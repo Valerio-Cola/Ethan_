@@ -8,14 +8,19 @@ import random
 
 
 
+###---Wait to avoid that twitterAPI session is too long open---###  
+
+time.sleep(3600) # 1 hour
+
+ 
 ###---Login into TwitterAPI---###
 from tweepy import api
 import tweepy 
 
-consumer_key = 'CG6xRJT6tyzmtU02VFKBsJ7vb' 
-consumer_secret = 'grValF0HVRr2edhKzqM72xe2ytXrVu5wj4PbhSwYTV0j1fjYVK' 
-access_token = '1432301626757353472-A74aSFk5cn0RPNfIZJF4AxqLDOd4s5' 
-access_token_secret = 'p0KqKbSnFMv2gnffKjr9Ilt7hZwhP5EXbWFfgmVeICjmU' 
+consumer_key = 'QpZSniG92kP23NFvtMdlkn0s8' 
+consumer_secret = 'nOljbT3D4WiG0cbZhsXKxMo4wXkXyt5PmcwB4kK07dNC9WQ9TJ' 
+access_token = '1595096122472763400-9tJnGFPeqyNMlXvlqiP2ogRq7iiFYk' 
+access_token_secret = 'dm00LwgKOK4zBu8HpqzbiLGiXn1PIBFknOcurEharU2Xz' 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
@@ -38,7 +43,7 @@ def infogetter():
     informations.append(author.text)
     
     # Get image
-    img = soup2.find("img") 
+    img = soup2.find(itemprop= "image") 
     image1 = img.get("src")
     response = requests.get(image1)
     file = open("sample_image.png", "wb")
@@ -76,7 +81,7 @@ def duplicate_finder(titles, author):
     duplicated = titles.text + ", " + author.text
         
     lista_query = []
-    tweets = api.user_timeline(screen_name = "EthanAlgo", count = 50, include_rts = False, tweet_mode = 'extended')
+    tweets = api.user_timeline(screen_name = "Ethan Algorithm", count = 50, include_rts = False, tweet_mode = 'extended')
 
     for info in tweets:
          appended = info.full_text
@@ -90,7 +95,6 @@ def duplicate_finder(titles, author):
         tweeter()
 
 
-
 ###---Publish the tweet---###
 
 hash_art = ["#artist", "#artnews", "#artinfo", "#painting", "#paint", "#art", "#drawing", "#colors", "#artwork", "#arte", "#artistic"]
@@ -100,10 +104,9 @@ def tweeter():
     last_hash = random.choice(hash_art)
 
     message = ', '.join(map(str, informations[:2])) + f" {informations[2]}\n\n" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #art #artgallery {last_hash}\n Source: {truelink[0]}"
-
+    
     media = api.media_upload("sample_image.png")
     api.update_status(status=message, media_ids=[media.media_id])
-
 
 
 ###---Call the function of getLink.py---###
@@ -114,7 +117,6 @@ searcher()
 
 ###---Enter into the link with bs4 obtained with getLink.py---###
 
-print(truelink[0])
 url2 = truelink[0]
 page2 = urlopen(url2)
 html2 = page2.read().decode("utf-8")
@@ -126,9 +128,3 @@ soup2 = BeautifulSoup(html2, "html.parser")
 
 infogetter()
 
-
-
-
-###---Wait to avoid that twitterAPI session is too long open---###  
-
-time.sleep(3600) # 1 hour
