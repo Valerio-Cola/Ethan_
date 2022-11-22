@@ -7,11 +7,6 @@ import time
 import random
 
 
-###---Wait to avoid that twitterAPI session is too long open---###  
-
-time.sleep(3600) # 1 hour
-
-
 
 ###---Login into TwitterAPI---###
 from tweepy import api
@@ -133,3 +128,7 @@ infogetter()
 
 
 
+
+###---Wait to avoid that twitterAPI session is too long open---###  
+
+time.sleep(3600) # 1 hour
