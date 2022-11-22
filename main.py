@@ -6,8 +6,6 @@ from getLink import searcher, truelink
 import time
 import random
 
-time.sleep(1800) # 30 min
- 
 ###---Login into TwitterAPI---###
 from tweepy import api
 import tweepy 
@@ -124,3 +122,6 @@ soup2 = BeautifulSoup(html2, "html.parser")
 infogetter()
 
 
+
+time.sleep(1800) # 30 min
+ 
