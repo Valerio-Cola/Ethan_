@@ -7,10 +7,9 @@ import time
 import random
 
 
+while__name__ == "__main__":
 
-###---Wait to avoid that twitterAPI session is too long open---###  
 
-time.sleep(3600) # 1 hour
 
  
 ###---Login into TwitterAPI---###
@@ -128,3 +127,4 @@ soup2 = BeautifulSoup(html2, "html.parser")
 
 infogetter()
 
+time.sleep(2700) # 1 hour
