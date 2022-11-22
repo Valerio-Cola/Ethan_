@@ -6,11 +6,7 @@ from getLink import searcher, truelink
 import time
 import random
 
-
-while__name__ == "__main__":
-
-
-
+time.sleep(1800) # 30 min
  
 ###---Login into TwitterAPI---###
 from tweepy import api
@@ -127,4 +123,4 @@ soup2 = BeautifulSoup(html2, "html.parser")
 
 infogetter()
 
-time.sleep(2700) # 1 hour
+
