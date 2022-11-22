@@ -6,6 +6,8 @@ from getLink import searcher, truelink
 import time
 import random
 
+time.sleep(1800) # 30 min
+
 ###---Login into TwitterAPI---###
 from tweepy import api
 import tweepy 
@@ -123,5 +125,5 @@ infogetter()
 
 
 
-time.sleep(1800) # 30 min
+
  
