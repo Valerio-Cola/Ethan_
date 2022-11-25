@@ -6,8 +6,7 @@ from getLink import searcher, truelink
 import time
 import random
 
-time.sleep(1800) # 30 min
-
+##cFpHd05WaGhoNW1lYlMyU3U4RVQ6MTpjaQ zSB8jgFacOxeNzp1hFJARRwDFC2UyGSDRjVuKroWZfMKrxKJmk 
 ###---Login into TwitterAPI---###
 from tweepy import api
 import tweepy 
@@ -22,6 +21,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 
+time.sleep(1800) # 30 min
 
 ###---Get Informations about the link---###
 
@@ -31,7 +31,7 @@ def infogetter():
 
     # Get title
     titles = soup2.find("h1") 
-    informations.append(titles.text)
+    informations.append("\U0001f5bc\uFE0F" + titles.text)
     
     # Get author
     author = soup2.find("h2")   
@@ -62,7 +62,7 @@ def infogetter():
         y1 = y.get_text()
         y2 = y1.replace("\n", "")
         y3 = y2.replace("Location:" , "")
-        informations.append("Location: " + y3)
+        informations.append("\U0001f4cd Location: " + y3)
 
     print(informations)
     duplicate_finder(titles, author)
@@ -97,8 +97,10 @@ hash_art = ["#artist", "#artnews", "#artinfo", "#painting", "#paint", "#art", "#
 def tweeter():
     has_name = informations[1].replace(" " ,"")
     last_hash = random.choice(hash_art)
+    last_hash2 = random.choice(hash_art)
+    
 
-    message = ', '.join(map(str, informations[:2])) + f" {informations[2]}\n\n" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #art #artgallery {last_hash}\n Source: {truelink[0]}"
+    message = ', '.join(map(str, informations[:2])) + f" {informations[2]}\n\n" + "\U0001f3a8" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #art #artgallery {last_hash} {last_hash2}\n Source: {truelink[0]}"
     
     media = api.media_upload("sample_image.png")
     api.update_status(status=message, media_ids=[media.media_id])
@@ -126,4 +128,4 @@ infogetter()
 
 
 
- 
+
