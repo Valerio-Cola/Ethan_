@@ -21,7 +21,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 
-time.sleep(1800) # 30 min
+
 
 ###---Get Informations about the link---###
 
@@ -127,5 +127,5 @@ infogetter()
 
 
 
-
+time.sleep(1800) # 30 min
 
