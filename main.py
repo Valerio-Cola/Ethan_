@@ -127,5 +127,3 @@ infogetter()
 
 
 
-time.sleep(1800) # 30 min
-
