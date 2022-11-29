@@ -3,8 +3,8 @@ from urllib.request import urlopen
 import requests
 
 from getLink import searcher, truelink
-import time
 import random
+from github import Github
 
 ##cFpHd05WaGhoNW1lYlMyU3U4RVQ6MTpjaQ zSB8jgFacOxeNzp1hFJARRwDFC2UyGSDRjVuKroWZfMKrxKJmk 
 ###---Login into TwitterAPI---###
@@ -32,11 +32,11 @@ def infogetter():
     # Get title
     titles = soup2.find("h1") 
     informations.append("\U0001f5bc\uFE0F" + titles.text)
-    
+    titolo = titles.text
     # Get author
     author = soup2.find("h2")   
     informations.append(author.text)
-    
+    autore = author.text
     # Get image
     img = soup2.find(itemprop= "image") 
     image1 = img.get("src")
@@ -65,30 +65,30 @@ def infogetter():
         informations.append("\U0001f4cd Location: " + y3)
 
     print(informations)
-    duplicate_finder(titles, author)
+    database(titolo, autore)
+    
 
 
 
 ###---Search if the same tweet already exist---###
-
-def duplicate_finder(titles, author):
-
-    duplicated = titles.text + ", " + author.text
-        
-    lista_query = []
-    tweets = api.user_timeline(screen_name = "Ethan Algorithm", count = 50, include_rts = False, tweet_mode = 'extended')
-
-    for info in tweets:
-         appended = info.full_text
-         appended1 = appended.replace("\n","")
-         index = appended1.find("Style")
-         lista_query.append(appended1[:int(index)])
-
-    if duplicated in lista_query:
-        return
-    else:
-        tweeter()
-
+#Deprecated
+#def duplicate_finder(titles, author):
+#
+#    duplicated = titles.text + ", " + author.text
+#    lista_query = []
+#    tweets = api.user_timeline(screen_name = "Ethan Algorithm", count = 50, include_rts = False, tweet_mode = 'extended')
+#
+#    for info in tweets:
+#         appended = info.full_text
+#         appended1 = appended.replace("\n","")
+#         index = appended1.find("Style")
+#         lista_query.append(appended1[:int(index)])
+#
+#    if duplicated in lista_query:
+#        return
+#    else:
+#        tweeter()
+#
 
 ###---Publish the tweet---###
 
@@ -97,13 +97,32 @@ hash_art = ["#artist", "#artnews", "#artinfo", "#painting", "#paint", "#art", "#
 def tweeter():
     has_name = informations[1].replace(" " ,"")
     last_hash = random.choice(hash_art)
-    last_hash2 = random.choice(hash_art)
     
 
-    message = ', '.join(map(str, informations[:2])) + f" {informations[2]}\n\n" + "\U0001f3a8" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #art #artgallery {last_hash} {last_hash2}\n Source: {truelink[0]}"
+    message = ', '.join(map(str, informations[:2])) + f" {informations[2]}\n\n" + "\U0001f3a8" + '\n'.join(map(str, informations[3:])) + f"\n\n #{has_name} #art #artgallery {last_hash}\n Source: {truelink[0]}"
     
     media = api.media_upload("sample_image.png")
     api.update_status(status=message, media_ids=[media.media_id])
+
+
+
+
+def database(titolo, autore):
+
+    g = Github("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")
+    repo = g.get_user().get_repo('EthanStorage')
+    # update
+    file = repo.get_contents("db.txt", ref="main")
+    vecchiofile = file.decoded_content.decode()
+
+    new_data = f"{titolo} {autore}"
+    
+    if new_data not in vecchiofile:
+        repo.update_file(file.path, "", f"{vecchiofile}  \n{new_data}", file.sha, branch="main")
+        tweeter()
+    else:
+        return
+        
 
 
 ###---Call the function of getLink.py---###
