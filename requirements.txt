@@ -3,5 +3,4 @@ tweepy
 bs4
 requests
 selenium
-github
 pygithub
