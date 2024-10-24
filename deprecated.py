@@ -6,7 +6,7 @@ from deprecated2 import searcher, truelink
 import random
 from github import Github
 
-##cFpHd05WaGhoNW1lYlMyU3U4RVQ6MTpjaQ zSB8jgFacOxeNzp1hFJARRwDFC2UyGSDRjVuKroWZfMKrxKJmk 
+
 ###---Login into TwitterAPI---###
 from tweepy import api
 import tweepy 
