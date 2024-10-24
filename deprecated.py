@@ -11,10 +11,10 @@ from github import Github
 from tweepy import api
 import tweepy 
 
-consumer_key = 'QpZSniG92kP23NFvtMdlkn0s8' 
-consumer_secret = 'nOljbT3D4WiG0cbZhsXKxMo4wXkXyt5PmcwB4kK07dNC9WQ9TJ' 
-access_token = '1595096122472763400-9tJnGFPeqyNMlXvlqiP2ogRq7iiFYk' 
-access_token_secret = 'dm00LwgKOK4zBu8HpqzbiLGiXn1PIBFknOcurEharU2Xz' 
+consumer_key = 'XXXX' 
+consumer_secret = 'XXXX' 
+access_token = 'XXXX' 
+access_token_secret = 'XXXX'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret) 
 auth.set_access_token(access_token, access_token_secret)
@@ -109,7 +109,7 @@ def tweeter():
 
 def database(titolo, autore):
 
-    g = Github("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")
+    g = Github('XXXX')
     repo = g.get_user().get_repo('EthanStorage')
     # update
     file = repo.get_contents("db.txt", ref="main")
