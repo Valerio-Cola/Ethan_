@@ -1,7 +1,0 @@
-
-tweepy
-bs4
-requests
-selenium
-pygithub
-webdriver_manager
