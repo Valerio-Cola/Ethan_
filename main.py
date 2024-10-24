@@ -33,9 +33,9 @@ def configure_selenium():
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--remote-debugging-port=9222')
     
-    # Percorso del ChromeDriver installato dal buildpack
-    chrome_bin = os.getenv('GOOGLE_CHROME_BIN', '/app/.apt/usr/bin/google-chrome')
-    chromedriver_path = os.getenv('CHROMEDRIVER_PATH', '/app/.chromedriver/bin/chromedriver')
+    # Percorso del ChromeDriver e Google Chrome
+    chrome_bin = '/app/.chrome-for-testing/chrome-linux64/chrome'  # Imposta il percorso di google-chrome
+    chromedriver_path = '/app/.chrome-for-testing/chromedriver-linux64/chromedriver'  # Imposta il percorso di chromedriver
     
     chrome_options.binary_location = chrome_bin
     
