@@ -24,6 +24,24 @@ ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 
+
+def configure_selenium():
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--remote-debugging-port=9222')
+    
+    # Percorso del ChromeDriver installato dal buildpack
+    chrome_bin = os.getenv('GOOGLE_CHROME_BIN', '/app/.apt/usr/bin/google-chrome')
+    chromedriver_path = os.getenv('CHROMEDRIVER_PATH', '/app/.chromedriver/bin/chromedriver')
+    
+    chrome_options.binary_location = chrome_bin
+    
+    driver = webdriver.Chrome(service=Service(chromedriver_path), options=chrome_options)
+    return driver
+
 def create_client():
     
     auth = tweepy.OAuth1UserHandler(
@@ -75,13 +93,7 @@ def database(titolo, autore):
 
 def main():
 
-
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver = configure_selenium()
     driver.get('https://www.wikiart.org/')
 
     # Trova gli elementi dei link usando XPath
